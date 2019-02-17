@@ -1,0 +1,17 @@
+{% extends 'layouts.html' %}
+{% block body %}
+<div class="jumbotron text-center">
+    {% if message %}
+    <h1 class="display-4">{{message}}</h1>
+    {% endif %}
+    <h1>Welcome to Confess It!!</h1>
+    <p class="lead">Anonymous Messages and Personal FeedBack</p>
+    <h2>Not Registered!Register Now</h2>
+    <br>
+    <a href="/register" class="btn btn-outline-success btn-lg" role="button">Sign Up</a>
+    <br><br>
+    <h2>Already Registered</h2>
+    <br>
+    <a href="/login" class="btn btn-outline-success btn-lg" role="button">Login</a>
+</div>
+{% endblock %}

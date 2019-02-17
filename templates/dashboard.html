@@ -1,0 +1,48 @@
+{% extends 'layouts.html' %}
+{% block body %}
+{% if message %}
+<h1>{{message}}</h1>
+{% endif %}
+<section id="cover">
+        <div id="cover-caption">
+            <div id="container" class="container">
+                <div class="row">
+                    <div class="col-sm-6 offset-sm-3 text-center">
+                        <h1 class="display-4">Welcome {{user.name}}</h1>
+                        <p class="lead">{{messages.filter_by(status='unseen').count()}} New Messages</p>
+                        <div class="list-group">
+                          {% for m in messages %}
+                          <a href="/message/{{m.id}}"class="list-group-item d-flex justify-content-between align-items-center">
+                             {{m.text_msg[0:35]}}...
+                            {% if m.status == 'unseen' %}
+                            <span class="badge badge-primary badge-pill">New</span>
+                            {% endif %}
+                          </a>
+                          {% endfor %}
+                        </div>
+
+
+                        <!-- <div class="info-form">
+                            <form action="/login" method="POST" class="form-inlin justify-content-center">
+                    
+                                <div class="form-group">
+                                    <label class="sr-only">Email</label>
+                                    <input type="text" class="form-control form-control-lg" name="email" placeholder="Email">
+                                </div>
+        
+                                <div class="form-group">
+                                            <label class="sr-only">Password</label>
+                                            <input type="text" class="form-control form-control-lg" name="password" placeholder="Password">
+                                 </div>
+                                <button type="submit" class="btn btn-success btn-block btn-lg ">Login!</button>
+                            </form>
+                        </div> --> 
+                        <!-- <a href="#nav-main" class="btn btn-outline-secondary btn-sm" role="button">
+                            More
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'layouts.html' %}
+{% block body %}
+<h1>{{username}}</h1>
+{% if success %}
+<h1 class="text-center">{{success}}</h1>
+{% endif %}
+<section id="cover">
+        <div id="cover-caption">
+            <div id="container" class="container">
+                <div class="row">
+                    <div class="col-sm-6 offset-sm-3 text-center">
+                        <h1 class="display-4">Your Anonymous Message For {{user.name}}</h1>
+                        <div class="info-form">
+                            <form action="/{{user.username}}" method="POST" class="form-inlin justify-content-center">
+                                <div class="form-group">
+                                    <label for="comment">Your Message:</label>
+                                    <textarea class="form-control" rows="5" name="text_msg"id="comment"></textarea>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="customRange3">How much you Like {{user.name}}?</label>
+                                    <input type="range" name="likeness" class="custom-range" min="0" max="100" step="1" id="customRange3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="customRange3">How Honest is {{user.name}}?</label>
+                                    <input type="range" name="honest" class="custom-range" min="0" max="100" step="1" id="customRange3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="customRange3">How much beautiful is {{user.name}}?</label>
+                                    <input  type="range" name="beautiful" class="custom-range success" min="0" max="100" step="1" id="customRange3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="customRange3">How much intelligent {{user.name}} ?</label>
+                                    <input type="range" name="intelligent" class="custom-range" min="0" max="100" step="1" id="customRange3">
+                                </div>                                
+                                <button type="submit" class="btn btn-success btn-block btn-lg ">Okay, go!</button>
+                    
+                            </form>
+                        </div>
+                        <br>
+    
+                        <!-- <a href="#nav-main" class="btn btn-outline-secondary btn-sm" role="button">
+                            More
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

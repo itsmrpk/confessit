@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" class="primary" href="/">Confess It!</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link right" href="/about">About</a>
+        {% if 'email' in session %}
+        <a class="nav-item nav-link right" href="/dashboard">Messages</a>
+        <a class="nav-item nav-link right" href="/profile">Profile</a>
+        <a class="nav-item nav-link right" href="/logout">LogOut</a>
+        {% endif %}
+        {% if not 'email' in session %}
+        <a class="nav-item nav-link right" href="/login">Login</a>
+        <a class="nav-item nav-link right" href="/register">SignUp</a>
+        {% endif %}
+    </div>
+    </div>
+</nav>
